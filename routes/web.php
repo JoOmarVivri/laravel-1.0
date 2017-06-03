@@ -10,8 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Models\Post;
+
 Route::get('/', function () {
-    //return view('welcome');
-    return Post::all();
+    return view('welcome');
 });
+
+Route::get('/posts', 'PostController@index');
+
+Route::post('/posts', 'PostController@store');
+
+Route::get('/posts/{post}', 'PostController@show');
