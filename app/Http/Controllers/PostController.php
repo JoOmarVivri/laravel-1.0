@@ -74,6 +74,10 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->content = $request->content;
+        $post->save();
+
+        return $post;
     }
 
     /**
@@ -85,5 +89,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+
+        return ['status' => 'true'];
+
     }
 }

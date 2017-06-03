@@ -20,3 +20,7 @@ Route::get('/posts', 'PostController@index');
 Route::post('/posts', 'PostController@store');
 
 Route::get('/posts/{post}', 'PostController@show');
+
+Route::put('/posts/{post}', 'PostController@update');
+
+Route::delete('/posts/{post}', 'PostController@destroy');
