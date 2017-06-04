@@ -9,7 +9,9 @@
                 <div class="panel-body">
 					<ul>
 						@forelse ($posts as $post)
-							<li>{{ $post->content }}</li>
+							<li>
+								<a href="{{url('posts', $post->id )}}" title="">{{ $post->content }}</a>
+							</li>
 						@empty
 							<p>No tiene ningun post </p>
 						@endforelse
