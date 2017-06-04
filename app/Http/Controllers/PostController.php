@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
+
 
 class PostController extends Controller
 {
@@ -15,7 +17,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return Post::all();
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -34,10 +37,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //
-        //dd($request->all());
+
         return Post::create($request->all());
     }
 
@@ -47,10 +50,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(PostRequest $post)
     {
         //
-        return $post;
+        return view('posts.post', compact('post'));
     }
 
     /**
@@ -71,7 +74,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         //
         $post->content = $request->content;
