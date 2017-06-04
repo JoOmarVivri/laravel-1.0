@@ -19,7 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', 'PostController');
+Route::resource('posts', 'PostController', [
+		'middleware' => 'App\Http\Middleware\PostOwner',
+		
+		]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
