@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use Carbon\Carbon;
+use Auth;
 
 
 class PostController extends Controller
@@ -18,7 +19,10 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::user()->id)
+            //->orderBy('created_at', 'desc')
+            ->latest()
+            ->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -44,7 +48,7 @@ class PostController extends Controller
         //
         $post = Post::create([
             'content' => $request->content,
-            'user_id' => \Auth::user()->id,
+            'user_id' => Auth::user()->id,
             ]);
 
         return redirect('posts');

@@ -11,6 +11,7 @@
 						@forelse ($posts as $post)
 							<li>
 								<a href="{{url('posts', $post->id )}}" title="">{{ $post->abstract }}</a>
+								<small>{{$post->created_at}}</small>
 							</li>
 						@empty
 							<p>No tiene ningun post </p>
