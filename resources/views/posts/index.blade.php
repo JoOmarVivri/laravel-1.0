@@ -16,7 +16,11 @@
 							<p>No tiene ningun post </p>
 						@endforelse
 					</ul>
+					<footer>
+						<button type="button"> <a href="{{url('posts', 'create')}}" title="">Crear Post</a></button>
+					</footer>
                 </div>
+
             </div>
         </div>
     </div>

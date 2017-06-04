@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+	/*return App\Models\Post::create([
+		'content' => 'Aquí Testeando',
+		'user_id' => \Auth::user()->id,
+		]);*/
     return view('welcome');
 });
 
@@ -19,3 +23,10 @@ Route::resource('posts', 'PostController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/registrarPost', function () {
+	return App\Models\Post::create([
+		'content' => 'Aquí Testeando',
+		'user_id' => \Auth::user()->id,
+		]);
+    //return view('welcome');
+});
