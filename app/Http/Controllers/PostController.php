@@ -50,7 +50,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(PostRequest $post)
+    public function show(Post $post)
     {
         //
         return view('posts.post', compact('post'));
@@ -77,8 +77,9 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         //
-        $post->content = $request->content;
-        $post->save();
+        $post->update($request->all());
+        //$post->content = $request->content;
+        //$post->save();
 
         return $post;
     }
