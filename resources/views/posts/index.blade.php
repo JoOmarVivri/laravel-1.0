@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (session()->has('message') );
+	{{ session()->get('message') }}
+@endif
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

@@ -51,6 +51,8 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             ]);
 
+        session()->flash('message', 'post creado');
+
         return redirect('posts');
 
         //return Post::create($request->all());
@@ -106,8 +108,8 @@ class PostController extends Controller
     {
         //
         $post->delete();
-
-        return ['status' => 'true'];
+        session()->flash('message', 'post eliminado');
+        return redirect('posts');
 
     }
 }
