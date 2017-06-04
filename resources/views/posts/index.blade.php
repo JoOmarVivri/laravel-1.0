@@ -10,7 +10,7 @@
 					<ul>
 						@forelse ($posts as $post)
 							<li>
-								<a href="{{url('posts', $post->id )}}" title="">{{ $post->content }}</a>
+								<a href="{{url('posts', $post->id )}}" title="">{{ $post->abstract }}</a>
 							</li>
 						@empty
 							<p>No tiene ningun post </p>

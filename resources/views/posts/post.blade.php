@@ -18,7 +18,7 @@
 						<div class="media-body">
 					        {{ $post->content }}
 					        <footer>
-					              Publicado {{ $post->created_at }}
+					              Publicado {{$post->created_at}}
 					        </footer>
 					     </div>
 					</div>
