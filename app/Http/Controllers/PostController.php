@@ -27,7 +27,7 @@ class PostController extends Controller
         
             //->orderBy('created_at', 'desc')
         $posts = $query->latest()
-                    ->get();
+                    ->paginate(10);
 
         return view('posts.index', compact('posts'));
     }

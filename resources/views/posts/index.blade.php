@@ -5,12 +5,13 @@
 @if (session()->has('message') );
 	{{ session()->get('message') }}
 @endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                	LISTADO DE POSTS
+                	LISTADO DE POSTS @if (Request::input('search')) QUE COINCIDEN CON <b>{{Request::input('search')}}</b>@endif
                 	
                 </div>
                 <div class="panel-body">
@@ -31,6 +32,8 @@
 							<p>No tiene ningun post </p>
 						@endforelse
 					</ul>
+
+                    {{ $posts->appends(['search' => Request::input('search') ])->links() }}
 					<footer>
 						<button type="button"> <a href="{{url('posts', 'create')}}" title="">Crear Post</a></button>
 					</footer>
