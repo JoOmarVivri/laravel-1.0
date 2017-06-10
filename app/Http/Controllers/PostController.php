@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use Carbon\Carbon;
 use Auth;
+use Gate;
 
 
 class PostController extends Controller
@@ -113,6 +114,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        if(Gate::denies('delete-post', $post)){
+            abort(403);
+        }
         $post->delete();
         session()->flash('message', 'post eliminado');
         return redirect('posts');
