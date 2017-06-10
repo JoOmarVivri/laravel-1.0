@@ -12,6 +12,9 @@ class PostCreator extends Seeder
     public function run()
     {
         //
-        
+        DB::table('posts')->insert([
+        	'content' => 'Post con seeder',
+        	'user_id' => 1
+        ]);
     }
 }
