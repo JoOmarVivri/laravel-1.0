@@ -30,4 +30,10 @@ class User extends Authenticatable
      public function posts(){
         return $this->hasMany('App\Models\Post');
     }
+
+    public function interactions()
+    {
+        return $this->belongsToMany('App\Models\Post', 'create_interactions_table' )
+                    ->withPivot('reaction');
+    }
 }

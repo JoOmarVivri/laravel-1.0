@@ -8,7 +8,14 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ol>
+                        <li>
+                            <a href="{{route('posts.index')}}" title="">Mis Posts</a>
+                        </li>
+                        <li>
+                            <a href="{{route('interactions')}}" title="">Mis reacciones</a>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>

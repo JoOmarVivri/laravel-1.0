@@ -23,6 +23,7 @@ Route::resource('posts', 'PostController', [
 		'middleware' => 'App\Http\Middleware\PostOwner',
 		
 		]);
+Route::get('interactions', 'UserController@interactions' )->name('interactions');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
