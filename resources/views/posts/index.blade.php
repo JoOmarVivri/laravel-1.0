@@ -11,7 +11,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                	LISTADO DE POSTS @if (Request::input('search')) QUE COINCIDEN CON <b>{{Request::input('search')}}</b>@endif
+                	LISTADO DE POSTS @if (Request::has('search')) QUE COINCIDEN CON <b>{{Request::get('search')}}</b>@endif
                 	
                 </div>
                 <div class="panel-body">
@@ -33,7 +33,7 @@
 						@endforelse
 					</ul>
 
-                    {{ $posts->appends(['search' => Request::input('search') ])->links() }}
+                    {{ $posts->appends(['search' => Request::get('search') ])->links() }}
 					<footer>
 						<button type="button"> <a href="{{url('posts', 'create')}}" title="">Crear Post</a></button>
 					</footer>

@@ -50,5 +50,15 @@ class Post extends Model
     	return strtoupper($value);
     }
 
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+   public function interactions()
+   {
+       return $this->belongsToMany('App\Models\User', 'create_interactions_table' )
+                    ->withPivot('reaction');
+   }
     
 }
