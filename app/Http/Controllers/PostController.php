@@ -16,13 +16,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $posts = Post::where('user_id', Auth::user()->id)
+
+        $query = Post::where('user_id', 1);
+        if($request->search){
+            $query->where('content', 'like', '%'.$request->search.'%');
+        }
+        
             //->orderBy('created_at', 'desc')
-            ->latest()
-            ->get();
+        $posts = $query->latest()
+                    ->get();
+
         return view('posts.index', compact('posts'));
     }
 

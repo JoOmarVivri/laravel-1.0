@@ -9,8 +9,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">LISTADO DE POSTS</div>
+                <div class="panel-heading">
+                	LISTADO DE POSTS
+                	
+                </div>
                 <div class="panel-body">
+                	<div class="">
+                		<form action="{{route('posts.index')}}" method="GET" accept-charset="utf-8">
+                			<input type="text" class="form-group" name="search" value="" placeholder="Buscar Post">
+                			<input type="submit" value="Buscar" class="btn btn-primary">
+                			
+                		</form>
+                	</div>
 					<ul>
 						@forelse ($posts as $post)
 							<li>
