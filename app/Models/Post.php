@@ -60,5 +60,14 @@ class Post extends Model
        return $this->belongsToMany('App\Models\User', 'create_interactions_table' )
                     ->withPivot('reaction');
    }
-    
+   /**
+
+      uso de scope el la cual se agreca la funcion para modificar el query
+
+   */
+   public function scopeWithoutInteractions($query)
+   {
+      return $query->doesntHave('interactions');
+   }
+
 }
