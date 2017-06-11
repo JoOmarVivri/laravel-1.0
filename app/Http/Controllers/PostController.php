@@ -21,11 +21,11 @@ class PostController extends Controller
     {
         //
 
-        $query = Post::where('user_id', 1);
+        $query = Post::where('user_id', Auth::user()->id);
         if($request->search){
             $query->where('content', 'like', '%'.$request->search.'%');
         }
-        
+
             //->orderBy('created_at', 'desc')
         $posts = $query->latest()
                     ->paginate(10);

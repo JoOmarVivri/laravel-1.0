@@ -21,7 +21,7 @@
 					              Publicado {{$post->created_at}}
 					        </footer>
 					     </div>
-					     @can('delete-post', $post)
+					     
 					     <div class="">
 					     	<form action="{{route('posts.destroy', $post->id)}}" method="POST" accept-charset="utf-8">
 					     		{{ csrf_field() }}
@@ -29,7 +29,7 @@
 					     		<input type="submit" name="deleted" value="Destruir" class="btn btn-danger">
 					     	</form>
 					     </div>
-					   	@endcan
+					   
 					</div>
                 </div>
             </div>
