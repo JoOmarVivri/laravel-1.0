@@ -15,6 +15,14 @@ class BannerUsers
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        // dd(\Auth::user());
+        if (\Auth::user()->banned == 0) {
+          return $next($request);
+        }
+
+        session()->flash('message','vergas  te han banneado');
+
+        return redirect('/home');
+
     }
 }

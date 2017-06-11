@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', 'PostController', [
-		'middleware' => 'App\Http\Middleware\PostOwner',
-		
+		'middleware' => 'App\Http\Middleware\BannerUsers',
+
 		]);
 Route::get('interactions', 'UserController@interactions' )->name('interactions');
 Auth::routes();
